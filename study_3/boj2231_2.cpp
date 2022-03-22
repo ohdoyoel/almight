@@ -2,13 +2,14 @@
 using namespace std;
 
 // 각 자리수 합 구하는 함수
-int sum(int n)
+int sum(int *n)
 {
-    int res = n;
-    while(n)
+    int tmp = *n;
+    int res = tmp;
+    while(tmp)
     {
-        res += n % 10;
-        n /= 10;
+        res += tmp % 10;
+        tmp /= 10;
     }
     return res;
 }
@@ -20,7 +21,7 @@ int main()
 
     for (int i = 1; i < n; i++)
     {
-        res = sum(i);
+        res = sum(&i);
         if (res == n)
         {
             cout << i << endl;
